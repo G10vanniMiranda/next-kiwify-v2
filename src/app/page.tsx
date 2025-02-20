@@ -83,7 +83,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="bg-white rounded-md h-auto flex flex-col items-center gap-4 border-2">
+        <div className="bg-white rounded-md h-auto flex flex-col items-center gap-4">
           <form className=" flex flex-col gap-5 w-80 m-4">
             <div className="flex flex-col">
               <label htmlFor="email" className="text-md font-semibold">
