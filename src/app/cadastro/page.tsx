@@ -1,14 +1,19 @@
 "use client";
 
+import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
 export default function Cadastro() {
+  const url = "http://localhost:8080/users";
+
   const [email, setEmail] = useState("");
   const [confirmEmail, setConfirmEmail] = useState("");
+
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+
   const [pais, setPais] = useState("");
 
   const [textConfirmEmail, setTextConfirmEmail] = useState("hidden");
@@ -16,19 +21,29 @@ export default function Cadastro() {
 
   const [btnEntrar, setBtnEntrar] = useState("bg-blue-700");
 
-  const emailDefault = "admin@gmail.com";
-  const confirmEmailDefault = "admin@gmail.com";
-  const passwordDefault = "123456";
-  const confirmPasswordDefault = "123456";
+  /**  0. Validações
+   *   1. Verificar se o e-mail é válido
+   *   2. regex para o campo email
+   *   3. regex para o campo password
+   */
 
-  function handleEnter() {
+  /** users
+   *  id,
+   *  name,
+   *  email,
+   *  password,
+   */
+
+  function handleValidar(envent: any) {
+    envent.preventDefault();
+
     if (email === "") {
       alert("Preencha o campo e-mail");
       setBtnEntrar("bg-red-700");
       return;
     }
-    if (confirmEmail === "") {
-      alert("Confirme o seu e-mail");
+
+    if (email !== confirmEmail) {
       setBtnEntrar("bg-red-700");
       setTextConfirmEmail("block");
       return;
@@ -38,45 +53,37 @@ export default function Cadastro() {
       setBtnEntrar("bg-red-700");
       return;
     }
-    if (confirmPassword === "") {
-      alert("Confirme a senha");
+    if (password !== confirmPassword) {
       setBtnEntrar("bg-red-700");
       setTextConfirmPassword("block");
       return;
     }
 
-    if (email !== emailDefault) {
-      alert("E-mail incorreto");
-      setBtnEntrar("bg-red-700");
-      return;
-    }
-    if (confirmEmail !== confirmEmailDefault) {
-      alert("E-mail incorreto");
-      setBtnEntrar("bg-red-700");
-      setTextConfirmEmail("block");
-      return;
-    }
-    if (password !== passwordDefault) {
-      alert("Password incorreto");
-      setBtnEntrar("bg-red-700");
-      return;
-    }
-    if (confirmPassword !== confirmPasswordDefault) {
-      alert("Password incorreto");
-      setBtnEntrar("bg-red-700");
-      setTextConfirmPassword("block");
-      return;
-    }
+    handleInserir();
+  }
+
+  function handleInserir() {
+    /** inserir o usuário */
+    axios.post(url, {
+      email,
+      password,
+    });
 
     alert("Cadastro realizado com sucesso");
+
+    /** limpar os campos */
+    setEmail("");
+    setConfirmEmail("");
+    setPassword("");
+    setConfirmPassword("");
   }
   return (
-    <div className="bg-slate-100 h-screen flex items-center justify-center">
+    <div className="bg-slate-100 h-full flex items-center justify-center">
       <div className="h-full flex flex-col items-center justify-center gap-4">
         <Image
-          src="./image/logo2.svg"
-          alt="Logo Kiwify"
-          width={300}
+          src="/image/logo.png"
+          alt="Logo Save Cred"
+          width={200}
           height={100}
         />
 
@@ -199,8 +206,8 @@ export default function Cadastro() {
             </div>
 
             <button
-              onClick={handleEnter}
-              className={`${btnEntrar} p-2 w-80 mb-5 text-white text-md rounded-md font-semibold cursor-pointer"
+              onClick={handleValidar}
+              className={`${btnEntrar} p-2 w-auto mb-5 text-white text-md rounded-md font-semibold cursor-pointer"
               `}
             >
               Criar conta

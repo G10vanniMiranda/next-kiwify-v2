@@ -1,0 +1,34 @@
+{
+  "users": [
+    {
+      "id": "95f0",
+      "email": "giovannimiranda09@gmail.com",
+      "password": "123456"
+    },
+    {
+      "id": "6d88",
+      "email": "rodrigoexer1@gmail.com",
+      "password": "123456"
+    }
+  ],
+  "category": [
+    {
+      "id": "0701",
+      "name": "eleltronicos"
+    },
+    {
+      "id": "710b",
+      "name": "notebooks"
+    },
+    {
+      "id": "4bca",
+      "name": "carros"
+    }
+  ],
+  "product": [
+    {
+      "id": "faa2",
+      "name": "Dell G15"
+    }
+  ]
+}

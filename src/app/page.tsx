@@ -19,7 +19,6 @@ export default function Home() {
 
   function handleEnter() {
     if (email === "") {
-      alert("Preencha o e-mail");
       setTextEmail("block");
       setBtnEntrar("bg-red-700");
       setContainer("bg-red-400");
@@ -27,7 +26,6 @@ export default function Home() {
     }
 
     if (password === "") {
-      alert("Preencha a senha");
       setTextPassword("block");
       setBtnEntrar("bg-red-700");
       setContainer("bg-red-400");
@@ -60,20 +58,20 @@ export default function Home() {
     <div
       className={`${btnContainer} w-screen h-screen flex pt-20 justify-center`}
     >
-      <div className="w-1/5 h-1/2 flex flex-col items-center gap-4">
+      <div className="w-auto h-96 flex flex-col items-center ">
         <Image
-          src="./image/logo2.svg"
-          alt="Logo Kiwify"
-          width={300}
+          src="/image/logo.png"
+          alt="Logo Save Cred"
+          width={200}
           height={100}
         />
 
         <div className="flex flex-col items-center">
-          <h2 className="text-3xl text-center font-extrabold bg-red w-screen p-10">
+          <h2 className="text-3xl text-center font-extrabold bg-red w-screen p-2">
             Entrar na sua conta
           </h2>
 
-          <div className="flex gap-1">
+          <div className="flex gap-1 py-4">
             <h1>Ou</h1>
             <Link href="/cadastro">
               <p className="text-blue-700 font-semibold cursor-pointer">

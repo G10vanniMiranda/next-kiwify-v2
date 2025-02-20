@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Redefinir() {
   const [email, setEmail] = useState("");
@@ -26,17 +27,22 @@ export default function Redefinir() {
   }
 
   return (
-    <div className="bg-slate-100 w-screen h-screen flex items-center justify-center">
-      <div className="w-1/5 h-1/2 flex flex-col items-center gap-4">
-        <img src="./image/logo2.svg" alt="Logo Kiwify" className="w-40" />
+    <div className="bg-slate-100 w-screen h-screen flex p-36 justify-center">
+      <div className="w-auto h-96 flex flex-col items-center gap-4">
+        <Image
+          src="/image/logo.png"
+          alt="Logo Save Cred"
+          width={200}
+          height={100}
+        />
 
         <div className="flex flex-col items-center justify-center">
-          <h2 className="text-3xl font-extrabold text-center w-screen mb-1">
+          <h2 className="text-3xl font-extrabold text-center w-screen mb-1 py-3">
             Redefinir a senha
           </h2>
 
-          <h1 className="text-center">
-            Você receberá um e-mail com instruções para redefinir a senha
+          <h1 className="text-center text-lg font-semibold py-3">
+            Você receberá um e-mail com instruções <br /> para redefinir a senha
           </h1>
         </div>
 
@@ -60,7 +66,7 @@ export default function Redefinir() {
           <Link href="/">
             <button
               onClick={handleEnter}
-              className="bg-blue-700 w-80 h-10 text-white text-sm rounded-md font-semibold cursor-pointer"
+              className="bg-blue-700 w-80 h-10 mb-5 text-white text-sm rounded-md font-semibold cursor-pointer"
             >
               Redefinir senha
             </button>
