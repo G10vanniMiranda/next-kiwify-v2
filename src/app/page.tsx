@@ -83,7 +83,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="bg-white rounded-md h-auto flex flex-col items-center gap-4">
+        <div className="bg-white rounded-md h-auto flex flex-col items-center gap-4 border-2">
           <form className=" flex flex-col gap-5 w-80 m-4">
             <div className="flex flex-col">
               <label htmlFor="email" className="text-md font-semibold">
@@ -94,7 +94,7 @@ export default function Home() {
                 name="email"
                 value={email}
                 onChange={(event) => setEmail(event.target.value)}
-                className="w-80 border-2 p-2 rounded-md ouline-none"
+                className="w-80 border-2 p-2 rounded-md outline-none"
               />
               <p className={`mb-3 text-red-600 ${textEmail}`}>
                 Precisa preencher o campo e-mail
