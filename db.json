@@ -29,6 +29,16 @@
     {
       "id": "faa2",
       "name": "Dell G15"
+    },
+    {
+      "id": "fb95",
+      "name": "iPhone 16"
+    },
+    {
+      "id": "0589",
+      "name": "Lenovo i3",
+      "quantity": "26",
+      "price": "2200"
     }
   ]
 }

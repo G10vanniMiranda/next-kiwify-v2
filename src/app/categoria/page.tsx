@@ -5,19 +5,24 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
+interface Category {
+  id: number;
+  name: string;
+}
+
 export default function Category() {
   const url = "http://localhost:8080/category";
   const [name, setName] = useState("");
   const [btnEntrar, setBtnEntrar] = useState("bg-blue-700");
 
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<Category[]>([]);
 
   /** Carregar dados do banco */
   useEffect(() => {
     axios.get(url).then((res) => setData(res.data));
   }, [data, setData]);
 
-  function handleValidar(e: any) {
+  function handleValidar(e: React.MouseEvent<HTMLButtonElement>) {
     e.preventDefault();
 
     if (name === "") {
