@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import MenuOpenIcon from '@mui/icons-material/MenuOpen';
 
 export default function Home() {
   const [email, setEmail] = useState("");
@@ -73,7 +74,7 @@ export default function Home() {
 
           <div className="flex gap-1 py-4">
             <h1>Ou</h1>
-            <Link href="/cadastro">
+            <Link href="/cadastro2">
               <p className="text-blue-700 font-semibold cursor-pointer">
                 fazer cadastro
               </p>

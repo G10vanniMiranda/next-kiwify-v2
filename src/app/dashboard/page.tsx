@@ -1,7 +1,15 @@
+import { MenuOpen } from "@mui/icons-material";
+
 export default function Dashboard() {
   return (
     <div className="flex flex-col items-center gap-4 bg-slate-100">
-      <div className="pt-4">
+      <div className="w-full h-10 flex items-center justify-end p-4">
+        <div className="bg-yellow-300 hidden">
+          <MenuOpen />
+        </div>
+      </div>
+
+      <div className="pt-2">
         <h1>DASHBOARD</h1>
       </div>
 
